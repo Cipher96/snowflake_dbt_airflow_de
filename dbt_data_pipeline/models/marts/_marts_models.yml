@@ -1,0 +1,35 @@
+models:
+  - name: order_items_fact
+    columns:
+      - name: order_item_key
+        tests:
+          - unique
+          - not_null
+
+  - name: order_items_summary_fact
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+
+  - name: orders_fact
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stage_tpch_orders')
+              field: order_key
+              severity: warn
+      - name: gross_item_sales_amount
+        tests:
+          - not_null
+      - name: item_discount_amount
+        tests:
+          - not_null
+      - name: order_status
+        tests:
+          - accepted_values:
+              values: ['P', 'O', 'F']

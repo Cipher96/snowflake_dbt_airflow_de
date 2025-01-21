@@ -1,0 +1,14 @@
+models:
+  - name: stage_tpch_orders
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stage_tpch_line_items
+    columns:
+      - name: order_item_key
+        tests:
+          - unique
+          - not_null
