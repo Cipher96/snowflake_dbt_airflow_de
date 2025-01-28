@@ -1,0 +1,50 @@
+-- --
+-- 1. DW
+-- 2. role
+-- 3. database->schema->tables(dbt tables)
+-- --
+
+use role accountadmin;
+
+create warehouse sbx_dbt_wh; -- create warehouse
+
+create database dbt_db; --create db
+
+create role sbx_dbt_role; --create role
+
+show grants on warehouse sbx_dbt_wh; --it shows you that only the ACCOUNT ADMIN role is granted on the warehouse
+
+grant usage on warehouse sbx_dbt_wh to role sbx_dbt_role;
+
+-- grant ownership on warehouse sbx_dbt_wh to role sbx_dbt_role copy current grants; --assign previlage as OWNERSHIP, but lets not change it
+
+grant role sbx_dbt_role to user SAGARMOYDEMOSNF; -- to set the role on user, so you can view/use the role
+
+grant all on database dbt_db to role sbx_dbt_role;
+
+-- warehouse and database are on (account admin + custom role)
+-- schema and tables are on custom role
+
+use role sbx_dbt_role;
+
+create schema dbt_db.dbt_schema;
+
+use role accountadmin;
+
+--
+
+--
+-- Analysis/ Data validation
+--
+select * from DBT_DB.DBT_SCHEMA.STAGE_TPCH_ORDERS limit 10;
+
+select * from DBT_DB.DBT_SCHEMA.STAGE_TPCH_LINE_ITEMS limit 100;
+
+select * from DBT_DB.DBT_SCHEMA.ORDER_ITEMS_FACT limit 100;
+
+select * from DBT_DB.DBT_SCHEMA.ORDER_ITEMS_SUMMARY_FACT limit 100;
+
+select * from DBT_DB.DBT_SCHEMA.ORDERS_FACT limit 100;
+
+
+
