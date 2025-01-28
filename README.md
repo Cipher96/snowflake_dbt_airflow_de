@@ -23,7 +23,7 @@ The pipeline follows a modern ELT (Extract, Load, Transform) approach:
 
 ![img.png](images/img.png)
 
-2. Steps mentioned in the sql workbook to create role/warehouse/db/schema
+2. Steps mentioned in the sql workbook to create role/warehouse/db/schema (check snowflake_queries.txt)
 
 **Installing DBT in local**
 1. Refer docs - https://docs.getdbt.com/docs/core/pip-install
