@@ -29,15 +29,16 @@ The pipeline follows a modern ELT (Extract, Load, Transform) approach:
 1. Refer docs - https://docs.getdbt.com/docs/core/pip-install
 2. Create the environment for DBT: **python -m venv dbt-env**
 3. Activate the environment for Windows: dbt-env\Scripts\activate
+4. use the dbt-env virtual environment
+5. Install Snowflake adapter: **pip install dbt-snowflake**
+6. Install DBT core: **pip install dbt-core**
+7. Initialise: dbt init -> name: dbt_data_pipeline -> choose snowflake as the warehouse -> get account details from snowflake -> fill the details for role/warehouse/db/schema
 <br>
 Note: dbt connects to and runs SQL against your database, warehouse, lake, or query engine.
 These SQL-speaking platforms are collectively referred to as data platforms.
 dbt connects with data platforms by using a dedicated adapter plugin for each, in this case Snowflake.
 </br>
-4. use the dbt-env virtual environment
-5. Install Snowflake adapter: **pip install dbt-snowflake**
-6. Install DBT core: **pip install dbt-core**
-7. Initialise: dbt init -> name: dbt_data_pipeline -> choose snowflake as the warehouse -> get account details from snowflake -> fill the details for role/warehouse/db/schema
+
 
 ![img_1.png](images/img_1.png)
 
