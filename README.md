@@ -5,7 +5,7 @@ This project implements a modern data engineering pipeline using Snowflake, dbt 
 
 ## Tech Stack
 - **Snowflake**: Cloud data warehouse for storing and processing data
-- **dbt**: Handles data transformation and modeling
+- **dbt**: Handles data transformation and data modeling
 - **Apache Airflow**: Orchestrates pipeline scheduling and monitoring
 
 ## Architecture
